@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 import {
   Shield,
   Vote,
@@ -11,15 +12,36 @@ import {
   Eye,
   Heart,
 } from "lucide-react";
+import { AuthContext } from "../../contexts/AuthContext";
+import { GoogleOfficialLogin } from "../../features/auth";
 
 const Home = () => {
+  const { loginWithGoogleOfficial } = useContext(AuthContext);
+
+  const handleGoogleSuccess = async (user) => {
+    try {
+      // Usar o loginWithGoogleOfficial para processar os dados oficiais do Google
+      const result = await loginWithGoogleOfficial(user);
+      if (result.success) {
+        console.log("Login realizado com sucesso!", user);
+        // O redirecionamento será automático devido ao SiteApp
+      }
+    } catch (error) {
+      console.error("Erro no login:", error);
+    }
+  };
+
+  const handleGoogleError = (error) => {
+    console.error("Erro na autenticação Google:", error);
+  };
+
   const features = [
     {
       icon: Shield,
       title: "Modo Fiscalização",
       description:
         "Reporte problemas na sua comunidade e acompanhe soluções em tempo real.",
-      color: "text-blue-600",
+      color: "text-accent-500",
       bgColor: "bg-blue-100",
     },
     {
@@ -27,7 +49,7 @@ const Home = () => {
       title: "Modo Eleição",
       description:
         "Encontre candidatos alinhados com seus valores através de match inteligente.",
-      color: "text-green-600",
+      color: "text-accent-500",
       bgColor: "bg-green-100",
     },
     {
@@ -35,7 +57,7 @@ const Home = () => {
       title: "Biografia Dinâmica",
       description:
         "Veja métricas reais de desempenho dos políticos baseadas em dados.",
-      color: "text-purple-600",
+      color: "text-accent-500",
       bgColor: "bg-purple-100",
     },
   ];
@@ -87,24 +109,21 @@ const Home = () => {
               Conectando <span className="text-accent-400">Cidadania</span> ao{" "}
               <span className="text-accent-400">Voto</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-primary-100 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 text-text max-w-3xl mx-auto">
               Um ecossistema de cidadania ativa que mantém você engajado durante
               todo o ano, não apenas nas eleições.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <GoogleOfficialLogin
+                onSuccess={handleGoogleSuccess}
+                onError={handleGoogleError}
+              />
               <Link
                 to="/auth/register"
-                className="btn-primary text-lg px-8 py-3 flex items-center space-x-2 bg-accent-500 hover:bg-accent-600"
+                className="btn-secondary text-lg px-8 py-3 flex items-center space-x-2 bg-white text-text hover:bg-gray-100"
               >
-                <Shield className="h-5 w-5" />
-                <span>Criar Conta</span>
-              </Link>
-              <Link
-                to="/auth/login"
-                className="btn-secondary text-lg px-8 py-3 flex items-center space-x-2 bg-white text-primary-600 hover:bg-gray-100"
-              >
-                <Vote className="h-5 w-5" />
-                <span>Entrar</span>
+                <Users className="h-5 w-5" />
+                <span>Criar Conta Manual</span>
               </Link>
             </div>
           </div>
@@ -115,10 +134,10 @@ const Home = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
               Como Funciona o Voto Social
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-text max-w-2xl mx-auto">
               Duas funcionalidades que se complementam para criar uma democracia
               mais participativa
             </p>
@@ -137,10 +156,10 @@ const Home = () => {
                   >
                     <Icon className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  <h3 className="text-xl font-semibold text-text mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <p className="text-text">{feature.description}</p>
                 </div>
               );
             })}
@@ -152,10 +171,10 @@ const Home = () => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
               Biografias Dinâmicas dos Políticos
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-text max-w-3xl mx-auto">
               Avaliação completa baseada em três pilares de dados concretos e
               verificáveis
             </p>
@@ -171,19 +190,17 @@ const Home = () => {
                       <Icon className="h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900">
+                      <h3 className="text-xl font-semibold text-text">
                         {metric.title}
                       </h3>
-                      <p className="text-gray-600 text-sm">
-                        {metric.description}
-                      </p>
+                      <p className="text-text text-sm">{metric.description}</p>
                     </div>
                   </div>
                   <ul className="space-y-2">
                     {metric.items.map((item, itemIndex) => (
                       <li
                         key={itemIndex}
-                        className="flex items-center text-gray-700"
+                        className="flex items-center text-text"
                       >
                         <CheckCircle className="h-4 w-4 text-accent-500 mr-2 flex-shrink-0" />
                         <span className="text-sm">{item}</span>
@@ -201,10 +218,10 @@ const Home = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
               Nossos Princípios
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-text max-w-2xl mx-auto">
               Valores que devem guiar a política para o bem comum
             </p>
           </div>
@@ -215,9 +232,7 @@ const Home = () => {
                 key={index}
                 className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-lg p-6 text-center border border-primary-100 hover:border-primary-200 transition-colors"
               >
-                <h3 className="text-lg font-semibold text-gray-900">
-                  {principle}
-                </h3>
+                <h3 className="text-lg font-semibold text-text">{principle}</h3>
               </div>
             ))}
           </div>
@@ -230,13 +245,13 @@ const Home = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Pronto para uma Democracia Mais Participativa?
           </h2>
-          <p className="text-xl mb-8 text-primary-100">
+          <p className="text-xl mb-8 text-text">
             Comece hoje mesmo a fiscalizar sua comunidade e descobrir candidatos
             alinhados com seus valores.
           </p>
           <Link
             to="/sistema/fiscalizacao"
-            className="btn-primary text-lg px-8 py-3 bg-white text-primary-600 hover:bg-gray-100 inline-flex items-center space-x-2"
+            className="btn-primary text-lg px-8 py-3 bg-white text-text hover:bg-gray-100 inline-flex items-center space-x-2"
           >
             <span>Começar Agora</span>
             <ArrowRight className="h-5 w-5" />

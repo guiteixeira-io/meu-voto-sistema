@@ -3,9 +3,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import SiteApp from "./site/SiteApp";
 import SistemaApp from "./sistema/SistemaApp";
 import PrivateRoute from "./components/PrivateRoute";
-import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
-import ForgotPassword from "./pages/auth/ForgotPassword";
+import { LoginPage, RegisterPage, ForgotPasswordPage } from "./features/auth";
 
 function App() {
   return (
@@ -16,9 +14,12 @@ function App() {
           <Route path="/" element={<SiteApp />} />
 
           {/* Rotas de Autenticação */}
-          <Route path="/auth/login" element={<Login />} />
-          <Route path="/auth/register" element={<Register />} />
-          <Route path="/auth/forgot-password" element={<ForgotPassword />} />
+          <Route path="/auth/login" element={<LoginPage />} />
+          <Route path="/auth/register" element={<RegisterPage />} />
+          <Route
+            path="/auth/forgot-password"
+            element={<ForgotPasswordPage />}
+          />
 
           {/* Rotas do Sistema (Área Logada) - Protegidas */}
           <Route

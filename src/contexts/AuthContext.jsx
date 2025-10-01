@@ -114,6 +114,37 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const loginWithGoogleOfficial = async (googleUser) => {
+    try {
+      // Verificar se usuário já existe, senão criar um novo
+      const users = JSON.parse(localStorage.getItem("users") || "[]");
+      let user = users.find((u) => u.email === googleUser.email);
+
+      if (!user) {
+        // Criar novo usuário baseado nos dados oficiais do Google
+        user = {
+          id: googleUser.id,
+          name: googleUser.name,
+          email: googleUser.email,
+          picture: googleUser.picture,
+          given_name: googleUser.given_name,
+          family_name: googleUser.family_name,
+          createdAt: new Date().toISOString(),
+          provider: "google-official",
+        };
+        users.push(user);
+        localStorage.setItem("users", JSON.stringify(users));
+      }
+
+      localStorage.setItem("user", JSON.stringify(user));
+      setUser(user);
+
+      return { success: true, user };
+    } catch (error) {
+      return { success: false, error: error.message };
+    }
+  };
+
   const logout = () => {
     localStorage.removeItem("user");
     setUser(null);
@@ -168,6 +199,7 @@ export const AuthProvider = ({ children }) => {
     loading,
     login,
     loginWithGoogle,
+    loginWithGoogleOfficial,
     register,
     logout,
     forgotPassword,

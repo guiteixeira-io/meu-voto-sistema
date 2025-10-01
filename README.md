@@ -1,10 +1,10 @@
-# Voto Social 🗳️
+# Meu Voto 🗳️
 
 Plataforma digital de cidadania ativa que conecta a fiscalização comunitária com decisões eleitorais conscientes.
 
 ## 📋 Sobre o Projeto
 
-O **Voto Social** é um ecossistema de cidadania ativa que mantém o cidadão engajado durante todo o ano, não apenas nas eleições. A plataforma possui duas funcionalidades principais que se retroalimentam:
+O **Meu Voto** é um ecossistema de cidadania ativa que mantém o cidadão engajado durante todo o ano, não apenas nas eleições. A plataforma possui duas funcionalidades principais que se retroalimentam:
 
 ### 🛡️ Modo Fiscalização (Sempre Ativo)
 - **Objetivo**: Permitir que cidadãos reportem problemas cotidianos em suas comunidades

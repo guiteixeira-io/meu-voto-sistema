@@ -1,17 +1,17 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import SistemaLayout from "./components/SistemaLayout";
-import Dashboard from "./pages/Dashboard";
-import DashboardTest from "./pages/DashboardTest";
-import Politicos from "./pages/Politicos";
-import PoliticosSimples from "./pages/PoliticosSimples";
-import PoliticosOtimizado from "./pages/PoliticosOtimizado";
-import PoliticosPaginado from "./pages/PoliticosPaginado";
-import PoliticosComFotosReais from "./pages/PoliticosComFotosReais";
-import PoliticosComAPICompleta from "./pages/PoliticosComAPICompleta";
-import Fiscalizacao from "./pages/Fiscalizacao";
-import Eleicoes from "./pages/Eleicoes";
-import TinderPage from "./pages/TinderPage";
-import Perfil from "./pages/Perfil";
+import { Dashboard, DashboardTest, Eleicoes } from "../features/dashboard";
+import {
+  PoliticosPage,
+  PoliticosSimples,
+  PoliticosOtimizado,
+  PoliticosPaginado,
+  PoliticosComFotosReais,
+  PoliticosComAPICompleta,
+} from "../features/politicos";
+import { FiscalizacaoPage } from "../features/fiscalizacao";
+import { TinderPage } from "../features/tinder";
+import { PerfilPage } from "../features/perfil";
 
 function SistemaApp() {
   return (
@@ -19,10 +19,10 @@ function SistemaApp() {
       <Route path="/" element={<SistemaLayout />}>
         <Route index element={<Navigate to="/sistema/perfil" replace />} />
         <Route path="politicos" element={<PoliticosComAPICompleta />} />
-        <Route path="fiscalizacao" element={<Fiscalizacao />} />
+        <Route path="fiscalizacao" element={<FiscalizacaoPage />} />
         <Route path="eleicoes" element={<Eleicoes />} />
         <Route path="tinder" element={<TinderPage />} />
-        <Route path="perfil" element={<Perfil />} />
+        <Route path="perfil" element={<PerfilPage />} />
         <Route
           path="tinder/matches"
           element={
