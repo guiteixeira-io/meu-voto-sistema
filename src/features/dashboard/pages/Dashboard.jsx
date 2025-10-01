@@ -1,4 +1,4 @@
-import TinderPoliticosSimples from "../components/TinderPoliticosSimples";
+import TinderPoliticosSimples from "../../tinder/components/TinderPoliticosSimples";
 import {
   ChartBarIcon,
   UserGroupIcon,

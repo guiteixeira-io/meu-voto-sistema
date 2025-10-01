@@ -63,7 +63,7 @@ const Sidebar = ({ isOpen, setIsOpen, setSelectedNav }) => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-8 h-8 text-blue-600 mb-1"
+              className="w-8 h-8 text-primary-600 mb-1"
             >
               <path
                 strokeLinecap="round"
@@ -106,7 +106,7 @@ const Sidebar = ({ isOpen, setIsOpen, setSelectedNav }) => {
                     group flex items-center justify-center px-3 py-2 text-sm font-medium rounded-md transition-colors
                     ${
                       isActivePath(item.href)
-                        ? "bg-blue-100 text-blue-700 border-r-2 border-blue-700"
+                        ? "bg-primary-100 text-primary-700 border-r-2 border-primary-700"
                         : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                     }
                   `}

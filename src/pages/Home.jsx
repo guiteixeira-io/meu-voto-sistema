@@ -19,7 +19,7 @@ const Home = () => {
           <div className="text-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Acompanhe a
-              <span className="block text-blue-600">Política Brasileira</span>
+              <span className="block text-primary-600">Política Brasileira</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto px-4 leading-relaxed">
               Conheça presidentes históricos e deputados atuais com dados
@@ -29,7 +29,7 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
               <Link
                 to="/sistema"
-                className="w-full sm:w-auto bg-blue-600 text-white px-6 sm:px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center font-medium shadow-lg hover:shadow-xl"
+                className="w-full sm:w-auto bg-primary-600 text-white px-6 sm:px-8 py-3 rounded-lg hover:bg-primary-700 transition-colors flex items-center justify-center font-medium shadow-lg hover:shadow-xl"
               >
                 Começar Agora
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -45,7 +45,7 @@ const Home = () => {
             {/* Stats Cards - Mobile Friendly */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-12 sm:mt-16 max-w-4xl mx-auto">
               <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 sm:p-6 shadow-sm border border-white/50">
-                <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-2">
+                <div className="text-2xl sm:text-3xl font-bold text-primary-600 mb-2">
                   500+
                 </div>
                 <div className="text-sm sm:text-base text-gray-600">
@@ -88,7 +88,7 @@ const Home = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="bg-gray-50 p-6 sm:p-8 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <Users className="w-10 h-10 sm:w-12 sm:h-12 text-blue-600 mb-4" />
+              <Users className="w-10 h-10 sm:w-12 sm:h-12 text-primary-600 mb-4" />
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">
                 Base de Políticos
               </h3>
@@ -262,7 +262,7 @@ const Home = () => {
           <div className="space-y-6">
             <Link
               to="/sistema"
-              className="bg-blue-600 text-white px-6 sm:px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-flex items-center font-medium shadow-lg hover:shadow-xl"
+              className="bg-primary-600 text-white px-6 sm:px-8 py-3 rounded-lg hover:bg-primary-700 transition-colors inline-flex items-center font-medium shadow-lg hover:shadow-xl"
             >
               Explorar Sistema
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -271,7 +271,7 @@ const Home = () => {
             {/* Additional Info Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 max-w-2xl mx-auto">
               <div className="bg-white p-4 rounded-lg shadow-sm">
-                <div className="text-blue-600 font-semibold text-sm uppercase tracking-wide mb-2">
+                <div className="text-primary-600 font-semibold text-sm uppercase tracking-wide mb-2">
                   Transparência
                 </div>
                 <div className="text-gray-700 text-sm">

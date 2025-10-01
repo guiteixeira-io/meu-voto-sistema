@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from "../hooks/useAuth";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
-import GoogleLoginButton from "../../components/GoogleLoginButton";
+import GoogleLoginButton from "../components/GoogleLoginButton";
 
 const Login = () => {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from "../hooks/useAuth";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 
 const ForgotPassword = () => {

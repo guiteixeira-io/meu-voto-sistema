@@ -4,7 +4,7 @@ import {
   HandThumbUpIcon,
   HandThumbDownIcon,
 } from "@heroicons/react/24/outline";
-import Toast from "../../shared/components/Toast";
+import Toast from "../../../shared/components/Toast";
 
 const PoliticoCard = ({ politico, onLike, onDislike }) => {
   return (

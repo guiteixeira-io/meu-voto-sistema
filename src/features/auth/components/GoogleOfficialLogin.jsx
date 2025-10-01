@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useCallback } from "react";
-import { GOOGLE_CLIENT_ID } from "../config/googleAuth";
+import { GOOGLE_CLIENT_ID } from "../../../config/googleAuth";
 
 const GoogleOfficialLogin = ({ onSuccess, onError }) => {
   const googleButtonRef = useRef(null);
